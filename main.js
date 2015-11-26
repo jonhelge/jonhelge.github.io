@@ -27,7 +27,9 @@ document.addEventListener('WebComponentsReady', function() {
       console.log('Battery Level is ' + data.getUint8(0) + '%');
     });
   })
-  .catch(function(error) { });
+  .catch(function(error) { 
+     console.error('Argh! ', error);
+  });
 });
 });
 
