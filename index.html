@@ -21,10 +21,24 @@
 
 <body unresolved>
   <platinum-bluetooth-device services-filter='["heart_rate"]'>
-  </platinum-bluetooth-device>
+  <platinum-bluetooth-characteristic
+      service='heart_rate'
+      characteristic='heart_rate_measurement'>
+  </platinum-bluetooth-characteristic>
+ </platinum-bluetooth-device>
+  
+  
 
-  <section>
-    <paper-button raised>Get Device</paper-button>
+
+  
+   <section>
+    <paper-button id="GetDevice">
+      Get Device
+    </paper-button>
+    
+    <paper-button id="GetHRM">
+      Get heart rate
+    </paper-button>
   </section>
 
   <script src="main.js"></script>
