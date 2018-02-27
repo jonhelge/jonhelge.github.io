@@ -28,7 +28,7 @@ chart = eon.chart({
         label: "Time"
       },
       y: {
-        label: "Temperature"
+        label: "Jon Helge's kontor"
       }
     },
     grid: {
@@ -48,9 +48,7 @@ chart = eon.chart({
   },
   transform: function(m) {
     return { eon: { 
-    'Humidity': m.temperature,
-    'Temperature': m.temperature-1,
-    'Light': m.temperature-2
+    'Temperature': m.temperature,
    } }
   }
 });
