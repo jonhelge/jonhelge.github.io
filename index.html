@@ -47,16 +47,12 @@ chart = eon.chart({
     }
   },
   transform: function(message) {
-    var message = eon.c.flatten(message.eon);
-    var o = {};
-    for(index in message) {
-      if(__eon_cols.indexOf(index) > -1){
-        o[__eon_labels[index] || index] = message[index];
-      }
-    }
-    return {
-      eon: o
-    };
+    return { columns : [
+    ['x', new Date().getTime()],
+    ['Humidity', m.temperature],
+    ['Temperature', m.temperature-1],
+    ['Light', m.temperature-2]
+  ] }
   }
 });
 </script>
