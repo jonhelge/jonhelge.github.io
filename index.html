@@ -13,7 +13,7 @@ chart = eon.chart({
   history: false,
   flow: true,
   rate: 1000,
-  limit: 5,
+  limit: 30,
   generate: {
     bindto: "#chart",
     data: {
@@ -47,12 +47,12 @@ chart = eon.chart({
     }
   },
   transform: function(m) {
-    return { eon: { columns : [
+    return { eon: { 
     ['x', new Date().getTime()],
     ['Humidity', m.temperature],
     ['Temperature', m.temperature-1],
     ['Light', m.temperature-2]
-  ] } }
+   } }
   }
 });
 </script>
