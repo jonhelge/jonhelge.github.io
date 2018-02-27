@@ -1,0 +1,52 @@
+<html>
+  <head>
+  <script type="text/javascript" src="https://pubnub.github.io/eon/v/eon/1.0.0/eon.js"></script>
+<link type="text/css" rel="stylesheet" href="https://pubnub.github.io/eon/v/eon/1.0.0/eon.css"/>
+</head>
+  <body>
+    <div id="chart"></div>
+    <script>
+
+      var pubnub = new PubNub({
+        publishKey: 'pub-c-7267ae20-afda-46fd-bcd9-948c2a76df4a',
+        subscribeKey: 'sub-c-5982a338-1a3f-11e8-95aa-1eb18890f15d'
+      });
+
+      var channel = "c3-spline";
+
+      eon.chart({
+        pubnub: pubnub,
+        channels: [channel],
+        generate: {
+          bindto: '#chart',
+          data: {
+            labels: true,
+            type: 'pie'
+          },
+          bar: {
+            width: {
+              ratio: 0.5
+            }
+          }
+        }
+      });
+    </script>
+    <script>
+//      setInterval(function(){
+//
+//        pubnub.publish({
+//          channel: channel,
+//          message: {
+//            eon: {
+//              'Austin': Math.floor(Math.random() * 99),
+//              'New York': Math.floor(Math.random() * 99),
+//              'San Francisco': Math.floor(Math.random() * 99),
+//              'Portland': Math.floor(Math.random() * 99)
+//            }
+//          }
+//        });
+//
+//      }, 700);
+    </script>
+  </body>
+</html>
