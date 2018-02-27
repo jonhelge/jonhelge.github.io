@@ -46,7 +46,7 @@ chart = eon.chart({
       show: true
     }
   },
-  transform: function(message) {
+  transform: function(m) {
     return { columns : [
     ['x', new Date().getTime()],
     ['Humidity', m.temperature],
