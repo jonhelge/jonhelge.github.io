@@ -48,10 +48,9 @@ chart = eon.chart({
   },
   transform: function(m) {
     return { eon: { 
-    ['x', new Date().getTime()],
-    ['Humidity', m.temperature],
-    ['Temperature', m.temperature-1],
-    ['Light', m.temperature-2]
+    'Humidity': m.temperature,
+    'Temperature': m.temperature-1,
+    'Light': m.temperature-2
    } }
   }
 });
