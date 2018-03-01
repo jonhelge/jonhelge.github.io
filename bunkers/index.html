@@ -1,0 +1,58 @@
+<script type="text/javascript" src="https://pubnub.github.io/eon/v/eon/1.0.0/eon.js"></script>
+<link type="text/css" rel="stylesheet" href="https://pubnub.github.io/eon/v/eon/1.0.0/eon.css" />
+<div id="chart"></div>
+<script type="text/javascript">
+var __eon_pubnub = new PubNub({
+  subscribeKey: "sub-c-5982a338-1a3f-11e8-95aa-1eb18890f15d"
+});
+var __eon_cols = []; 
+var __eon_labels = {}; 
+chart = eon.chart({
+  pubnub: __eon_pubnub,
+  channels: ["nistadenv"],
+  history: true,
+  flow: true,
+  rate: 1000,
+  limit: 500,
+  generate: {
+    bindto: "#chart",
+    data: {
+      colors: {},
+      type: "line"
+    },
+    transition: {
+      duration: 250
+    },
+    axis: {
+      x: {
+        label: "Time"
+      },
+      y: {
+        label: "Villa Nistad"
+      }
+    },
+    grid: {
+      x: {
+        show: false 
+      },
+      y: {
+        show: false 
+      }
+    },
+    tooltip: {
+     show: true
+    },
+    point: {
+      show: true
+    }
+  },
+  transform: function(m) {
+    return { eon: { 
+    'Temperature': m.temperature,
+    'Battery level %' : m.battery,
+    'Humidity' : m.humidity,
+    'Pressure/10' : m.pressure/10
+   } }
+  }
+});
+</script>
