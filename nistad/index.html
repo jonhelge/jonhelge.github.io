@@ -24,7 +24,7 @@ chart = eon.chart({
       duration: 250
     },
     axis: {
-      x: {
+      x: {git pu
         label: "Time"
       },
       y: {
@@ -49,6 +49,7 @@ chart = eon.chart({
   transform: function(m) {
     return { eon: { 
     'Temperature': m.temperature,
+    'Battery level %' : m.battery
    } }
   }
 });
