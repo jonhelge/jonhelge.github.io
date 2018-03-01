@@ -49,7 +49,9 @@ chart = eon.chart({
   transform: function(m) {
     return { eon: { 
     'Temperature': m.temperature,
-    'Battery level %' : m.battery
+    'Battery level %' : m.battery,
+    'Humidity' : m.humidity,
+    'Pressure' : m.pressure
    } }
   }
 });
