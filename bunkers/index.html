@@ -55,4 +55,52 @@ chart = eon.chart({
    } }
   }
 });
+chart = eon.chart({
+  pubnub: __eon_pubnub,
+  channels: ["nistadenv"],
+  history: true,
+  flow: true,
+  rate: 1000,
+  limit: 500,
+  generate: {
+    bindto: "#chart",
+    data: {
+      colors: {},
+      type: "line"
+    },
+    transition: {
+      duration: 250
+    },
+    axis: {
+      x: {
+        label: "Time"
+      },
+      y: {
+        label: "Bunkersen"
+      }
+    },
+    grid: {
+      x: {
+        show: false 
+      },
+      y: {
+        show: false 
+      }
+    },
+    tooltip: {
+     show: true
+    },
+    point: {
+      show: true
+    }
+  },
+  transform: function(m) {
+    return { eon: { 
+    'Temperature': m.temperature,
+    'Battery level %' : m.battery,
+    'Humidity' : m.humidity//,
+    //'Pressure/10' : m.pressure/10
+   } }
+  }
+});
 </script>
