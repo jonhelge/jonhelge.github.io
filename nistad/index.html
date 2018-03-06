@@ -113,3 +113,116 @@ chart = eon.chart({
 });
 
 </script>
+<div id="chart3"></div>
+<script type="text/javascript">
+var __eon_pubnub = new PubNub({
+  subscribeKey: "sub-c-5982a338-1a3f-11e8-95aa-1eb18890f15d"
+});
+var __eon_cols = []; 
+var __eon_labels = {}; 
+chart = eon.chart({
+  pubnub: __eon_pubnub,
+  channels: ["nistadoutdoorenv"],
+  history: true,
+  flow: true,
+  rate: 1000,
+  limit: 500,
+  generate: {
+    bindto: "#chart",
+    data: {
+      colors: {},
+      type: "line"
+    },
+    transition: {
+      duration: 250
+    },
+    axis: {
+      x: {
+        label: "Time"
+      },
+      y: {
+        label: "Outdoor 1 hour average Nistad"
+      }
+    },
+    grid: {
+      x: {
+        show: false 
+      },
+      y: {
+        show: false 
+      }
+    },
+    tooltip: {
+     show: true
+    },
+    point: {
+      show: true
+    }
+  },
+  transform: function(m) {
+    return { eon: { 
+    'Temperature': m.temperature,
+    'Battery level %' : m.battery,
+    'Humidity' : m.humidity//,
+  //  'Pressure/10' : m.pressure/10
+   } }
+  }
+});
+</script>
+<div id="chart4"></div>
+<script type="text/javascript">
+var __eon_pubnub = new PubNub({
+  subscribeKey: "sub-c-5982a338-1a3f-11e8-95aa-1eb18890f15d"
+});
+var __eon_cols = []; 
+var __eon_labels = {}; 
+chart = eon.chart({
+  pubnub: __eon_pubnub,
+  channels: ["nistadoutdoor8houraverage"],
+  history: true,
+  flow: true,
+  rate: 1000,
+  limit: 500,
+  generate: {
+    bindto: "#chart4",
+    data: {
+      colors: {},
+      type: "line"
+    },
+    transition: {
+      duration: 250
+    },
+    axis: {
+      x: {
+        label: "Time"
+      },
+      y: {
+        label: " outdoor last 8 hour average"
+      }
+    },
+    grid: {
+      x: {
+        show: false 
+      },
+      y: {
+        show: false 
+      }
+    },
+    tooltip: {
+     show: true
+    },
+    point: {
+      show: true
+    }
+  },
+  transform: function(m) {
+    return { eon: { 
+    'Temperature': m.temperature,
+    'Battery level %' : m.battery,
+    'Humidity' : m.humidity//,
+  //  'Pressure/10' : m.pressure/10
+   } }
+  }
+});
+
+</script>
